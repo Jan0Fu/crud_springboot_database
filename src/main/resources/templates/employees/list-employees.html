@@ -20,13 +20,18 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="emp: ${employees}">
-                        <td th:text="${emp.firstName}"></td>
-                        <td th:text="${emp.lastName}"></td>
-                        <td th:text="${emp.email}"></td>
+                    <tr th:each="employee: ${employees}">
+                        <td th:text="${employee.firstName}"></td>
+                        <td th:text="${employee.lastName}"></td>
+                        <td th:text="${employee.email}"></td>
+                        <td>
+                            <a th:href="@{/employees/showFormForUpdate(employeeId=${employee.id})}"
+                                class="btn btn-info btn-sm">Update</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
