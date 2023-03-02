@@ -48,4 +48,15 @@ public class EmployeeController {
         employeeService.deleteById(theId);
         return "redirect:/employees/list";
     }
+
+    @GetMapping("/search")
+    public String delete(@RequestParam("employeeName") String theName,
+                         Model theModel) {
+
+        List<Employee> theEmployees = employeeService.searchBy(theName);
+        theModel.addAttribute("employees", theEmployees);
+
+        return "/employees/list-employees";
+
+    }
 }

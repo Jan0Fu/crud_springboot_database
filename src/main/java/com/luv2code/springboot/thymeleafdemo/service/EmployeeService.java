@@ -13,4 +13,6 @@ public interface EmployeeService {
     public void save(Employee employee);
 
     public void deleteById(int theId);
+
+    public List<Employee> searchBy(String theName);
 }
